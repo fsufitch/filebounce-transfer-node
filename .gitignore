@@ -79,6 +79,10 @@ celerybeat-schedule
 .env
 
 # virtualenv
+bin/
+lib/
+include/
+.Python
 venv/
 ENV/
 
@@ -87,3 +91,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+###
+
+pip-selfcheck.json

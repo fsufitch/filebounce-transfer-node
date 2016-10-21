@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+// Message from client and related types
+
+message ClientToTransferNodeMessage {
+  enum MessageType {
+    AUTHENTICATE = 0;
+    START_UPLOAD = 1;
+    UPLOAD_DATA = 2;
+    FINISHED = 3;
+  }
+  MessageType type = 1;
+  AuthenticateData authData = 2;
+  StartUploadData startData = 3;
+  UploadData uploadData = 4;
+  FinishedData finishedData = 5;
+  int64 timestamp = 6;
+}
+
+message AuthenticateData {
+  string key = 1;
+}
+
+message StartUploadData {
+  string filename = 1;
+  string mimetype = 2;
+  uint64 size = 3;
+}
+
+message UploadData {
+  uint64 order = 1;
+  uint64 size = 2;
+  bytes data = 3;
+}
+
+message FinishedData {
+  string error = 1;
+  bool success = 2;
+}
+
+// ----
+// Message to client and related types
