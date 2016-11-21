@@ -8,6 +8,7 @@ message ClientToTransferNodeMessage {
     START_UPLOAD = 1;
     UPLOAD_DATA = 2;
     FINISHED = 3;
+    ERROR = 4;
   }
   MessageType type = 1;
   AuthenticateData authData = 2;
@@ -40,3 +41,50 @@ message FinishedData {
 
 // ----
 // Message to client and related types
+
+message TransferNodeToClientMessage {
+  enum MessageType {
+    AUTH_SUCCESS = 0;
+    TRANSFER_CREATED = 1;
+    RECIPIENTS = 3;
+    PROGRESS = 4;
+    FINISHED = 5;
+    ERROR = 6;
+  }
+
+  MessageType type = 1;
+  AuthSuccessData authSuccessData = 2;
+  TransferCreatedData transferCreatedData = 3;
+  RecipientsData recipientsData = 4;
+  ProgressData progressData = 5;
+  FinishedData finishedData = 6;
+  ErrorData errorData = 7;
+  int64 timestamp = 8;
+}
+
+message AuthSuccessData {
+
+}
+
+message TransferCreatedData {
+  string transferId = 1;
+}
+
+message RecipientsData {
+  message Recipient {
+    string ipv4 = 1;
+    string ipv6 = 2;
+    string identity = 3;
+  }
+  repeated Recipient recipients = 1;
+}
+
+message ProgressData {
+  int64 bytesUploaded = 1;
+}
+
+message ErrorData {
+  string title = 1;
+  string jsonDetails = 2;
+  bool fatal = 3;
+}
