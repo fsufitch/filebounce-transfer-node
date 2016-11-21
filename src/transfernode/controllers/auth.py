@@ -1,5 +1,4 @@
-from rx.observable import Observable
-from rx.observer import Observer
+from rx import Observable, Observer
 
 from transfernode.models.exceptions import AuthenticationFailedException
 from transfernode.models.session import TransferSession
@@ -13,8 +12,8 @@ from transfernode.util import make_timestamp
 
 class AuthController:
     def __init__(self, session: TransferSession,
-                 incoming: Observable[AuthenticateData],
-                 outgoing: Observer[bytes]):
+                 incoming: Observable,
+                 outgoing: Observer):
         self.incoming = incoming
         self.outgoing = outgoing
         self.session = session

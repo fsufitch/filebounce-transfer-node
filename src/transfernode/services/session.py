@@ -9,7 +9,7 @@ class SessionService:  # Singleton
     __instance = None
 
     @classmethod
-    def instance(cls) -> SessionService:
+    def instance(cls):
         if not cls.__instance:
             cls.__instance = SessionService()
         return cls.__instance
@@ -19,7 +19,7 @@ class SessionService:  # Singleton
         self.transfer_sessions[session.id] = session
         return session
 
-    def cleanup_session(self, session_id: string):
+    def cleanup_session(self, session_id: str):
         if session_id not in self.transfer_sessions:
             return
         self.transfer_sessions[session_id].cleanup()

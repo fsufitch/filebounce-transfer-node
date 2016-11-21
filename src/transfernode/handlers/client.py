@@ -1,5 +1,5 @@
 from tornado.httputil import HTTPServerRequest
-from tornado.web import Application, Request
+from tornado.web import Application
 from tornado.websocket import WebSocketHandler
 from rx.subjects import Subject
 

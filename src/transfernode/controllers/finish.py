@@ -6,7 +6,7 @@ from transfernode.proto.clientmessage_pb2 import FinishedData
 
 class FinishController:
     def __init__(self, session: TransferSession,
-                 incoming: Observable[FinishedData], outgoing: Observer):
+                 incoming: Observable, outgoing: Observer):
         self.incoming = incoming
         self.outgoing = outgoing
         self.session = session

@@ -14,8 +14,8 @@ from transfernode.util import make_timestamp
 
 class StartUploadController:
     def __init__(self, session: TransferSession,
-                 incoming: Observable[StartUploadData],
-                 outgoing: Observer[bytes]):
+                 incoming: Observable,
+                 outgoing: Observer):
         self.incoming = incoming
         self.outgoing = outgoing
 

@@ -1,4 +1,5 @@
-from rx import Subject, Observable
+from rx import Observable
+from rx.subjects import Subject
 
 from transfernode.models.exceptions import (
     UploadAlreadyStartedException, UploadAlreadyFinishedException
@@ -19,7 +20,7 @@ class TransferSession:
 
         self._data = Subject()
 
-    def get_data_stream(self) -> Observable[bytes]:
+    def get_data_stream(self) -> Observable:
         if this.upload_started:
             raise UploadAlreadyStartedException()
         return self._data.share()

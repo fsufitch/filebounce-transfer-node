@@ -5,8 +5,8 @@ from transfernode.util import make_timestamp
 
 
 def create_client_error_message_bytes(exc: Exception,
-                                      fatal: boolean,
-                                      title: string=None) -> bytes:
+                                      fatal: bool,
+                                      title: str=None) -> bytes:
     title = title if title else exc.__class__.__name__
     message = TransferNodeToClientMessage(
       type=TransferNodeToClientMessage.MessageType.Value('ERROR'),

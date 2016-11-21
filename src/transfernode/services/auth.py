@@ -2,7 +2,7 @@ class AuthService:  # Singleton
     __instance = None
 
     @classmethod
-    def instance(cls) -> AuthService:
+    def instance(cls):
         if not cls.__instance:
             cls.__instance = AuthService()
         return cls.__instance
