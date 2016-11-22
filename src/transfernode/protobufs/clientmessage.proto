@@ -1,6 +1,5 @@
-package protobufs;
-
 syntax = "proto3";
+package protobufs;
 
 // Message from client and related types
 
