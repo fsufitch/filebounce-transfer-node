@@ -5,10 +5,10 @@ from transfernode.models.exceptions import (
     NotAuthenticatedException, InvalidUploadDataException
 )
 from transfernode.models.session import TransferSession
-from transfernode.proto.clientmessage_pb2 import (
+from transfernode.protobufs.clientmessage_pb2 import (
     StartUploadData, TransferNodeToClientMessage, TransferCreatedData,
 )
-from transfernode.proto.util import create_client_error_message_bytes
+from transfernode.protobufs.util import create_client_error_message_bytes
 from transfernode.util import make_timestamp
 
 

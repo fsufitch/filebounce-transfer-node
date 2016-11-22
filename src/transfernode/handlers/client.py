@@ -7,8 +7,8 @@ from transfernode.controllers.auth import AuthController
 from transfernode.controllers.start_upload import StartUploadController
 from transfernode.controllers.upload import UploadController
 from transfernode.controllers.finish import FinishController
-from transfernode.proto.clientmessage_pb2 import ClientToTransferNodeMessage
-from transfernode.proto.util import create_client_error_message_bytes
+from transfernode.protobufs.clientmessage_pb2 import ClientToTransferNodeMessage
+from transfernode.protobufs.util import create_client_error_message_bytes
 from transfernode.services.session import SessionService
 
 

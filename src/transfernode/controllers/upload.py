@@ -2,7 +2,7 @@ from rx import Observable, Observer
 
 from transfernode.models.exceptions import DataSizeMismatchException
 from transfernode.models.session import TransferSession
-from transfernode.proto.clientmessage_pb2 import (
+from transfernode.protobufs.clientmessage_pb2 import (
     UploadData, TransferNodeToClientMessage, ProgressData, ErrorData
 )
 from transfernode.util import make_timestamp

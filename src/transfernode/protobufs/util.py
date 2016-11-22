@@ -1,4 +1,4 @@
-from transfernode.proto.clientmessage_pb2 import (
+from transfernode.protobufs.clientmessage_pb2 import (
     TransferNodeToClientMessage, ErrorData
 )
 from transfernode.util import make_timestamp
