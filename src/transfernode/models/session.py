@@ -8,7 +8,7 @@ from transfernode.models.exceptions import (
 
 class TransferSession:
     def __init__(self, id):
-        this.id = id
+        self.id = id
         self.filename = None
         self.mimetype = None
         self.bytes_size = None
@@ -21,12 +21,12 @@ class TransferSession:
         self._data = Subject()
 
     def get_data_stream(self) -> Observable:
-        if this.upload_started:
+        if self.upload_started:
             raise UploadAlreadyStartedException()
         return self._data.share()
 
     def send_data(self, data: bytes):
-        if this.upload_finished:
+        if self.upload_finished:
             raise UploadAlreadyFinishedException()
         self._data.on_next(data)
 

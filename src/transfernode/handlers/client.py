@@ -63,19 +63,19 @@ class ClientWebSocketHandler(WebSocketHandler):
             lambda: self.complete(),
             )
 
-    def on_message(self, msg: str):
-        data = ClientToTransferNodeMessage.FromString(msg.encode())
+    def on_message(self, msg: bytes):
+        data = ClientToTransferNodeMessage.FromString(msg)
         self.incoming.on_next(data)
 
-    def send(msg: bytes):
+    def send(self, msg: bytes):
         self.write_message(msg, binary=True)
 
-    def error(exc: Exception):
+    def error(self, exc: Exception):
         message = create_client_error_message_bytes(exc, true)
         self.write_message(message, binary=True)
         self.complete()
 
-    def complete():
+    def complete(self):
         self.session_service.cleanup(self.session.id)
         self.close()
 

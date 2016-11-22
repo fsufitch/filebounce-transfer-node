@@ -1,3 +1,4 @@
+import json
 from transfernode.protobufs.clientmessage_pb2 import (
     TransferNodeToClientMessage, ErrorData
 )
