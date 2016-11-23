@@ -20,6 +20,12 @@ class ClientWebSocketHandler(WebSocketHandler):
         super().__init__(app, request, **kwargs)
         self.incoming = Subject()
         self.outgoing = Subject()
+        self.outgoing.subscribe(
+            lambda msg: self.send(msg),
+            lambda exc: self.error(exc),
+            lambda: self.complete(),
+            )
+
         self.session_service = SessionService.instance()
         self.session = self.session_service.start_session()
         self.expect_close = False
@@ -54,6 +60,8 @@ class ClientWebSocketHandler(WebSocketHandler):
             .map(lambda msg: msg.finishedData)
         )
 
+
+
         self.auth_controller = AuthController(self.session,
                                               auth_messages,
                                               self.outgoing)
@@ -66,12 +74,6 @@ class ClientWebSocketHandler(WebSocketHandler):
         self.finish_controller = FinishController(self.session,
                                                   finish_messages,
                                                   self.outgoing)
-
-        self.outgoing.subscribe(
-            lambda msg: self.send(msg),
-            lambda exc: self.error(exc),
-            lambda: self.complete(),
-            )
 
     def catch_incoming_error(self, exc: Exception):
         print("Error in incoming stream", repr(exc), file=sys.stderr)
@@ -92,12 +94,11 @@ class ClientWebSocketHandler(WebSocketHandler):
         self.write_message(msg, binary=True)
 
     def error(self, exc: Exception):
-        message = create_client_error_message_bytes(exc, true)
+        message = create_client_error_message_bytes(exc, True)
         self.write_message(message, binary=True)
         self.complete()
 
     def complete(self):
-        self.session_service.cleanup_session(self.session.id)
         self.expect_close = True
         self.close()
 

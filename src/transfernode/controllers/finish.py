@@ -14,4 +14,4 @@ class FinishController:
         self.incoming.subscribe(self.process_finished_data)
 
     def process_finished_data(self, data: FinishedData):
-        self.outgoing.on_complete()
+        self.outgoing.on_completed()

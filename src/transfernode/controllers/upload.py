@@ -21,7 +21,7 @@ class UploadController:
         size = data.size  # int
         raw_data = data.data  # bytes
         if (len(raw_data) != size):
-            self.outgoing.on_error(DataSizeMismatchException())
+            self.outgoing.on_error(DataSizeMismatchException("got %s expected %s" % (len(raw_data), size)))
 
         self.session.upload_started = True
         if not self.session.bytes_progress:
@@ -35,7 +35,7 @@ class UploadController:
         else:
             self.outgoing.on_next(self._create_progress_message())
 
-    def _create_progress_message(self, bytes_progress: int) -> bytes:
+    def _create_progress_message(self) -> bytes:
         message = TransferNodeToClientMessage(
             type=TransferNodeToClientMessage.MessageType.Value('PROGRESS'),
             progressData=ProgressData(
