@@ -23,7 +23,7 @@ class RecipientHandler(RequestHandler):
             self.send_error(410)
             return
 
-        session.subscribe(
+        self.session.get_data_stream().subscribe(
             lambda data: self.send_data(data),
             lambda exc: self.send_error(500),  # wtf
             lambda: self.complete(),

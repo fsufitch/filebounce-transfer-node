@@ -1,12 +1,15 @@
+import sys
 from tornado.httputil import HTTPServerRequest
 from tornado.web import Application
 from tornado.websocket import WebSocketHandler
 from rx.subjects import Subject
+from rx import Observable
 
 from transfernode.controllers.auth import AuthController
 from transfernode.controllers.start_upload import StartUploadController
 from transfernode.controllers.upload import UploadController
 from transfernode.controllers.finish import FinishController
+from transfernode.models.exceptions import UnexpectedWebsocketClose
 from transfernode.protobufs.clientmessage_pb2 import ClientToTransferNodeMessage
 from transfernode.protobufs.util import create_client_error_message_bytes
 from transfernode.services.session import SessionService
@@ -19,27 +22,34 @@ class ClientWebSocketHandler(WebSocketHandler):
         self.outgoing = Subject()
         self.session_service = SessionService.instance()
         self.session = self.session_service.start_session()
+        self.expect_close = False
+
+        self.incoming_caught = (
+            self.incoming
+            .catch_exception(self.catch_incoming_error)
+            .share()
+        )
 
         auth_messages = (
-            self.incoming
+            self.incoming_caught
             .filter(self._message_has_type('AUTHENTICATE'))
             .map(lambda msg: msg.authData)
         )
 
         start_upload_messages = (
-            self.incoming
+            self.incoming_caught
             .filter(self._message_has_type('START_UPLOAD'))
             .map(lambda msg: msg.startData)
         )
 
         upload_messages = (
-            self.incoming
+            self.incoming_caught
             .filter(self._message_has_type('UPLOAD_DATA'))
             .map(lambda msg: msg.uploadData)
         )
 
         finish_messages = (
-            self.incoming
+            self.incoming_caught
             .filter(self._message_has_type('FINISHED'))
             .map(lambda msg: msg.finishedData)
         )
@@ -63,9 +73,20 @@ class ClientWebSocketHandler(WebSocketHandler):
             lambda: self.complete(),
             )
 
+    def catch_incoming_error(self, exc: Exception):
+        print("Error in incoming stream", repr(exc), file=sys.stderr)
+        return Observable.of()
+
     def on_message(self, msg: bytes):
         data = ClientToTransferNodeMessage.FromString(msg)
         self.incoming.on_next(data)
+
+    def on_close(self):
+        self.session_service.cleanup_session(self.session.id)
+        if not self.expect_close:
+            self.incoming.on_error(UnexpectedWebsocketClose())
+        else:
+            self.incoming.on_completed()
 
     def send(self, msg: bytes):
         self.write_message(msg, binary=True)
@@ -76,7 +97,8 @@ class ClientWebSocketHandler(WebSocketHandler):
         self.complete()
 
     def complete(self):
-        self.session_service.cleanup(self.session.id)
+        self.session_service.cleanup_session(self.session.id)
+        self.expect_close = True
         self.close()
 
     def _message_has_type(self, msg_type: str):

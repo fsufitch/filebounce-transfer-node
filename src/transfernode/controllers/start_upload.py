@@ -18,6 +18,7 @@ class StartUploadController:
                  outgoing: Observer):
         self.incoming = incoming
         self.outgoing = outgoing
+        self.session = session
 
         self.incoming.subscribe(self.process_start_upload)
 

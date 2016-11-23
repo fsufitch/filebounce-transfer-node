@@ -20,3 +20,6 @@ class UploadAlreadyFinishedException(Exception):
 
 class UploadAlreadyStartedException(Exception):
     pass
+
+class UnexpectedWebsocketClose(Exception):
+    pass
