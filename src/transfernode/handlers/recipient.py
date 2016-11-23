@@ -1,3 +1,4 @@
+import sys
 from tornado.web import RequestHandler, asynchronous
 
 from transfernode.models.exceptions import UploadAlreadyStartedException
@@ -14,6 +15,7 @@ class RecipientHandler(RequestHandler):
     def get(self, transfer_id: str):
         if transfer_id not in self.session_service.transfer_sessions:
             self.send_error(404)
+            self.finish()
             return
         self.session = self.session_service.transfer_sessions[transfer_id]
 
@@ -21,17 +23,18 @@ class RecipientHandler(RequestHandler):
             data_stream = self.session.get_data_stream()
         except UploadAlreadyStartedException:
             self.send_error(410)
+            self.finish()
             return
+
 
         self.send_data(b'')  # Send headers
         self.session.get_data_stream().subscribe(
             lambda data: self.send_data(data),
-            lambda exc: self.send_error(500),  # wtf
+            lambda exc: self.complete(exc),  # wtf
             lambda: self.complete(),
         )
 
     def send_data(self, data: bytes):
-        print('send data of length', len(data))
         if not self.headers_sent:
             disposition = 'attachment; filename={}'
             disposition = disposition.format(self.session.filename)
@@ -40,7 +43,8 @@ class RecipientHandler(RequestHandler):
             self.set_header('Content-Disposition', disposition)
         self.write(data)
         self.flush()  # Necessary?
-        print('flushed')
 
-    def complete(self):
+    def complete(self, exc: Exception=None):
+        if exc:
+            self.send_error(500, exc_info=sys.exc_info())
         self.finish()
