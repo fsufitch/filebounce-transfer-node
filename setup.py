@@ -7,7 +7,7 @@ setup(name='transfernode',
       description="Websocket file transfer node",
       url="https://github.com/fsufitch/filebounce-transfer-node",
       package_dir={'': 'src'},
-      packages=['transfernode'],
+      packages=find_packages('src/'),
       entry_points={
           "console_scripts": [
               "transfernode=transfernode.server:main"
