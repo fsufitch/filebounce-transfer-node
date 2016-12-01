@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='clientmessage.proto',
-  package='',
+  package='protobufs',
   syntax='proto3',
-  serialized_pb=_b('\n\x13\x63lientmessage.proto\"\xd5\x02\n\x1b\x43lientToTransferNodeMessage\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32(.ClientToTransferNodeMessage.MessageType\x12#\n\x08\x61uthData\x18\x02 \x01(\x0b\x32\x11.AuthenticateData\x12#\n\tstartData\x18\x03 \x01(\x0b\x32\x10.StartUploadData\x12\x1f\n\nuploadData\x18\x04 \x01(\x0b\x32\x0b.UploadData\x12#\n\x0c\x66inishedData\x18\x05 \x01(\x0b\x32\r.FinishedData\x12\x11\n\ttimestamp\x18\x06 \x01(\x03\"[\n\x0bMessageType\x12\x10\n\x0c\x41UTHENTICATE\x10\x00\x12\x10\n\x0cSTART_UPLOAD\x10\x01\x12\x0f\n\x0bUPLOAD_DATA\x10\x02\x12\x0c\n\x08\x46INISHED\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\x1f\n\x10\x41uthenticateData\x12\x0b\n\x03key\x18\x01 \x01(\t\"C\n\x0fStartUploadData\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x10\n\x08mimetype\x18\x02 \x01(\t\x12\x0c\n\x04size\x18\x03 \x01(\x04\"7\n\nUploadData\x12\r\n\x05order\x18\x01 \x01(\x04\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\".\n\x0c\x46inishedData\x12\r\n\x05\x65rror\x18\x01 \x01(\t\x12\x0f\n\x07success\x18\x02 \x01(\x08\"\xc6\x03\n\x1bTransferNodeToClientMessage\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32(.TransferNodeToClientMessage.MessageType\x12)\n\x0f\x61uthSuccessData\x18\x02 \x01(\x0b\x32\x10.AuthSuccessData\x12\x31\n\x13transferCreatedData\x18\x03 \x01(\x0b\x32\x14.TransferCreatedData\x12\'\n\x0erecipientsData\x18\x04 \x01(\x0b\x32\x0f.RecipientsData\x12#\n\x0cprogressData\x18\x05 \x01(\x0b\x32\r.ProgressData\x12#\n\x0c\x66inishedData\x18\x06 \x01(\x0b\x32\r.FinishedData\x12\x1d\n\terrorData\x18\x07 \x01(\x0b\x32\n.ErrorData\x12\x11\n\ttimestamp\x18\x08 \x01(\x03\"l\n\x0bMessageType\x12\x10\n\x0c\x41UTH_SUCCESS\x10\x00\x12\x14\n\x10TRANSFER_CREATED\x10\x01\x12\x0e\n\nRECIPIENTS\x10\x03\x12\x0c\n\x08PROGRESS\x10\x04\x12\x0c\n\x08\x46INISHED\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\x11\n\x0f\x41uthSuccessData\")\n\x13TransferCreatedData\x12\x12\n\ntransferId\x18\x01 \x01(\t\"z\n\x0eRecipientsData\x12-\n\nrecipients\x18\x01 \x03(\x0b\x32\x19.RecipientsData.Recipient\x1a\x39\n\tRecipient\x12\x0c\n\x04ipv4\x18\x01 \x01(\t\x12\x0c\n\x04ipv6\x18\x02 \x01(\t\x12\x10\n\x08identity\x18\x03 \x01(\t\"%\n\x0cProgressData\x12\x15\n\rbytesUploaded\x18\x01 \x01(\x03\">\n\tErrorData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0bjsonDetails\x18\x02 \x01(\t\x12\r\n\x05\x66\x61tal\x18\x03 \x01(\x08\x62\x06proto3')
+  serialized_pb=_b('\n\x13\x63lientmessage.proto\x12\tprotobufs\"\x87\x03\n\x1b\x43lientToTransferNodeMessage\x12@\n\x04type\x18\x01 \x01(\x0e\x32\x32.protobufs.ClientToTransferNodeMessage.MessageType\x12-\n\x08\x61uthData\x18\x02 \x01(\x0b\x32\x1b.protobufs.AuthenticateData\x12-\n\tstartData\x18\x03 \x01(\x0b\x32\x1a.protobufs.StartUploadData\x12)\n\nuploadData\x18\x04 \x01(\x0b\x32\x15.protobufs.UploadData\x12-\n\x0c\x66inishedData\x18\x05 \x01(\x0b\x32\x17.protobufs.FinishedData\x12\x11\n\ttimestamp\x18\x06 \x01(\x03\"[\n\x0bMessageType\x12\x10\n\x0c\x41UTHENTICATE\x10\x00\x12\x10\n\x0cSTART_UPLOAD\x10\x01\x12\x0f\n\x0bUPLOAD_DATA\x10\x02\x12\x0c\n\x08\x46INISHED\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\x1f\n\x10\x41uthenticateData\x12\x0b\n\x03key\x18\x01 \x01(\t\"C\n\x0fStartUploadData\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x10\n\x08mimetype\x18\x02 \x01(\t\x12\x0c\n\x04size\x18\x03 \x01(\x04\"7\n\nUploadData\x12\r\n\x05order\x18\x01 \x01(\x04\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\".\n\x0c\x46inishedData\x12\r\n\x05\x65rror\x18\x01 \x01(\t\x12\x0f\n\x07success\x18\x02 \x01(\x08\"\x8c\x04\n\x1bTransferNodeToClientMessage\x12@\n\x04type\x18\x01 \x01(\x0e\x32\x32.protobufs.TransferNodeToClientMessage.MessageType\x12\x33\n\x0f\x61uthSuccessData\x18\x02 \x01(\x0b\x32\x1a.protobufs.AuthSuccessData\x12;\n\x13transferCreatedData\x18\x03 \x01(\x0b\x32\x1e.protobufs.TransferCreatedData\x12\x31\n\x0erecipientsData\x18\x04 \x01(\x0b\x32\x19.protobufs.RecipientsData\x12-\n\x0cprogressData\x18\x05 \x01(\x0b\x32\x17.protobufs.ProgressData\x12-\n\x0c\x66inishedData\x18\x06 \x01(\x0b\x32\x17.protobufs.FinishedData\x12\'\n\terrorData\x18\x07 \x01(\x0b\x32\x14.protobufs.ErrorData\x12\x11\n\ttimestamp\x18\x08 \x01(\x03\"l\n\x0bMessageType\x12\x10\n\x0c\x41UTH_SUCCESS\x10\x00\x12\x14\n\x10TRANSFER_CREATED\x10\x01\x12\x0e\n\nRECIPIENTS\x10\x03\x12\x0c\n\x08PROGRESS\x10\x04\x12\x0c\n\x08\x46INISHED\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\x11\n\x0f\x41uthSuccessData\"S\n\x13TransferCreatedData\x12\x12\n\ntransferId\x18\x01 \x01(\t\x12\x11\n\tchunkSize\x18\x02 \x01(\x04\x12\x15\n\rrequestChunks\x18\x03 \x01(\x04\"\x84\x01\n\x0eRecipientsData\x12\x37\n\nrecipients\x18\x01 \x03(\x0b\x32#.protobufs.RecipientsData.Recipient\x1a\x39\n\tRecipient\x12\x0c\n\x04ipv4\x18\x01 \x01(\t\x12\x0c\n\x04ipv6\x18\x02 \x01(\t\x12\x10\n\x08identity\x18\x03 \x01(\t\"O\n\x0cProgressData\x12\x15\n\rbytesUploaded\x18\x01 \x01(\x03\x12\x15\n\rrequestChunks\x18\x02 \x01(\x04\x12\x11\n\tchunkSize\x18\x03 \x01(\x04\">\n\tErrorData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0bjsonDetails\x18\x02 \x01(\t\x12\r\n\x05\x66\x61tal\x18\x03 \x01(\x08\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,7 +27,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CLIENTTOTRANSFERNODEMESSAGE_MESSAGETYPE = _descriptor.EnumDescriptor(
   name='MessageType',
-  full_name='ClientToTransferNodeMessage.MessageType',
+  full_name='protobufs.ClientToTransferNodeMessage.MessageType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -54,14 +54,14 @@ _CLIENTTOTRANSFERNODEMESSAGE_MESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=274,
-  serialized_end=365,
+  serialized_start=335,
+  serialized_end=426,
 )
 _sym_db.RegisterEnumDescriptor(_CLIENTTOTRANSFERNODEMESSAGE_MESSAGETYPE)
 
 _TRANSFERNODETOCLIENTMESSAGE_MESSAGETYPE = _descriptor.EnumDescriptor(
   name='MessageType',
-  full_name='TransferNodeToClientMessage.MessageType',
+  full_name='protobufs.TransferNodeToClientMessage.MessageType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -92,56 +92,56 @@ _TRANSFERNODETOCLIENTMESSAGE_MESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=921,
-  serialized_end=1029,
+  serialized_start=1052,
+  serialized_end=1160,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFERNODETOCLIENTMESSAGE_MESSAGETYPE)
 
 
 _CLIENTTOTRANSFERNODEMESSAGE = _descriptor.Descriptor(
   name='ClientToTransferNodeMessage',
-  full_name='ClientToTransferNodeMessage',
+  full_name='protobufs.ClientToTransferNodeMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ClientToTransferNodeMessage.type', index=0,
+      name='type', full_name='protobufs.ClientToTransferNodeMessage.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='authData', full_name='ClientToTransferNodeMessage.authData', index=1,
+      name='authData', full_name='protobufs.ClientToTransferNodeMessage.authData', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='startData', full_name='ClientToTransferNodeMessage.startData', index=2,
+      name='startData', full_name='protobufs.ClientToTransferNodeMessage.startData', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='uploadData', full_name='ClientToTransferNodeMessage.uploadData', index=3,
+      name='uploadData', full_name='protobufs.ClientToTransferNodeMessage.uploadData', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='finishedData', full_name='ClientToTransferNodeMessage.finishedData', index=4,
+      name='finishedData', full_name='protobufs.ClientToTransferNodeMessage.finishedData', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='timestamp', full_name='ClientToTransferNodeMessage.timestamp', index=5,
+      name='timestamp', full_name='protobufs.ClientToTransferNodeMessage.timestamp', index=5,
       number=6, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -160,20 +160,20 @@ _CLIENTTOTRANSFERNODEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24,
-  serialized_end=365,
+  serialized_start=35,
+  serialized_end=426,
 )
 
 
 _AUTHENTICATEDATA = _descriptor.Descriptor(
   name='AuthenticateData',
-  full_name='AuthenticateData',
+  full_name='protobufs.AuthenticateData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='AuthenticateData.key', index=0,
+      name='key', full_name='protobufs.AuthenticateData.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -191,34 +191,34 @@ _AUTHENTICATEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=398,
+  serialized_start=428,
+  serialized_end=459,
 )
 
 
 _STARTUPLOADDATA = _descriptor.Descriptor(
   name='StartUploadData',
-  full_name='StartUploadData',
+  full_name='protobufs.StartUploadData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='filename', full_name='StartUploadData.filename', index=0,
+      name='filename', full_name='protobufs.StartUploadData.filename', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='mimetype', full_name='StartUploadData.mimetype', index=1,
+      name='mimetype', full_name='protobufs.StartUploadData.mimetype', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='size', full_name='StartUploadData.size', index=2,
+      name='size', full_name='protobufs.StartUploadData.size', index=2,
       number=3, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -236,34 +236,34 @@ _STARTUPLOADDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=400,
-  serialized_end=467,
+  serialized_start=461,
+  serialized_end=528,
 )
 
 
 _UPLOADDATA = _descriptor.Descriptor(
   name='UploadData',
-  full_name='UploadData',
+  full_name='protobufs.UploadData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='order', full_name='UploadData.order', index=0,
+      name='order', full_name='protobufs.UploadData.order', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='size', full_name='UploadData.size', index=1,
+      name='size', full_name='protobufs.UploadData.size', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='data', full_name='UploadData.data', index=2,
+      name='data', full_name='protobufs.UploadData.data', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -281,27 +281,27 @@ _UPLOADDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=469,
-  serialized_end=524,
+  serialized_start=530,
+  serialized_end=585,
 )
 
 
 _FINISHEDDATA = _descriptor.Descriptor(
   name='FinishedData',
-  full_name='FinishedData',
+  full_name='protobufs.FinishedData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='error', full_name='FinishedData.error', index=0,
+      name='error', full_name='protobufs.FinishedData.error', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='success', full_name='FinishedData.success', index=1,
+      name='success', full_name='protobufs.FinishedData.success', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -319,69 +319,69 @@ _FINISHEDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=526,
-  serialized_end=572,
+  serialized_start=587,
+  serialized_end=633,
 )
 
 
 _TRANSFERNODETOCLIENTMESSAGE = _descriptor.Descriptor(
   name='TransferNodeToClientMessage',
-  full_name='TransferNodeToClientMessage',
+  full_name='protobufs.TransferNodeToClientMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='TransferNodeToClientMessage.type', index=0,
+      name='type', full_name='protobufs.TransferNodeToClientMessage.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='authSuccessData', full_name='TransferNodeToClientMessage.authSuccessData', index=1,
+      name='authSuccessData', full_name='protobufs.TransferNodeToClientMessage.authSuccessData', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='transferCreatedData', full_name='TransferNodeToClientMessage.transferCreatedData', index=2,
+      name='transferCreatedData', full_name='protobufs.TransferNodeToClientMessage.transferCreatedData', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='recipientsData', full_name='TransferNodeToClientMessage.recipientsData', index=3,
+      name='recipientsData', full_name='protobufs.TransferNodeToClientMessage.recipientsData', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='progressData', full_name='TransferNodeToClientMessage.progressData', index=4,
+      name='progressData', full_name='protobufs.TransferNodeToClientMessage.progressData', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='finishedData', full_name='TransferNodeToClientMessage.finishedData', index=5,
+      name='finishedData', full_name='protobufs.TransferNodeToClientMessage.finishedData', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='errorData', full_name='TransferNodeToClientMessage.errorData', index=6,
+      name='errorData', full_name='protobufs.TransferNodeToClientMessage.errorData', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='timestamp', full_name='TransferNodeToClientMessage.timestamp', index=7,
+      name='timestamp', full_name='protobufs.TransferNodeToClientMessage.timestamp', index=7,
       number=8, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -400,14 +400,14 @@ _TRANSFERNODETOCLIENTMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=575,
-  serialized_end=1029,
+  serialized_start=636,
+  serialized_end=1160,
 )
 
 
 _AUTHSUCCESSDATA = _descriptor.Descriptor(
   name='AuthSuccessData',
-  full_name='AuthSuccessData',
+  full_name='protobufs.AuthSuccessData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -424,22 +424,36 @@ _AUTHSUCCESSDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1031,
-  serialized_end=1048,
+  serialized_start=1162,
+  serialized_end=1179,
 )
 
 
 _TRANSFERCREATEDDATA = _descriptor.Descriptor(
   name='TransferCreatedData',
-  full_name='TransferCreatedData',
+  full_name='protobufs.TransferCreatedData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='transferId', full_name='TransferCreatedData.transferId', index=0,
+      name='transferId', full_name='protobufs.TransferCreatedData.transferId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='chunkSize', full_name='protobufs.TransferCreatedData.chunkSize', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='requestChunks', full_name='protobufs.TransferCreatedData.requestChunks', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -455,34 +469,34 @@ _TRANSFERCREATEDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1050,
-  serialized_end=1091,
+  serialized_start=1181,
+  serialized_end=1264,
 )
 
 
 _RECIPIENTSDATA_RECIPIENT = _descriptor.Descriptor(
   name='Recipient',
-  full_name='RecipientsData.Recipient',
+  full_name='protobufs.RecipientsData.Recipient',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ipv4', full_name='RecipientsData.Recipient.ipv4', index=0,
+      name='ipv4', full_name='protobufs.RecipientsData.Recipient.ipv4', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ipv6', full_name='RecipientsData.Recipient.ipv6', index=1,
+      name='ipv6', full_name='protobufs.RecipientsData.Recipient.ipv6', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='identity', full_name='RecipientsData.Recipient.identity', index=2,
+      name='identity', full_name='protobufs.RecipientsData.Recipient.identity', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -500,19 +514,19 @@ _RECIPIENTSDATA_RECIPIENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1158,
-  serialized_end=1215,
+  serialized_start=1342,
+  serialized_end=1399,
 )
 
 _RECIPIENTSDATA = _descriptor.Descriptor(
   name='RecipientsData',
-  full_name='RecipientsData',
+  full_name='protobufs.RecipientsData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='recipients', full_name='RecipientsData.recipients', index=0,
+      name='recipients', full_name='protobufs.RecipientsData.recipients', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -530,21 +544,35 @@ _RECIPIENTSDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1093,
-  serialized_end=1215,
+  serialized_start=1267,
+  serialized_end=1399,
 )
 
 
 _PROGRESSDATA = _descriptor.Descriptor(
   name='ProgressData',
-  full_name='ProgressData',
+  full_name='protobufs.ProgressData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='bytesUploaded', full_name='ProgressData.bytesUploaded', index=0,
+      name='bytesUploaded', full_name='protobufs.ProgressData.bytesUploaded', index=0,
       number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='requestChunks', full_name='protobufs.ProgressData.requestChunks', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='chunkSize', full_name='protobufs.ProgressData.chunkSize', index=2,
+      number=3, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -561,34 +589,34 @@ _PROGRESSDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1217,
-  serialized_end=1254,
+  serialized_start=1401,
+  serialized_end=1480,
 )
 
 
 _ERRORDATA = _descriptor.Descriptor(
   name='ErrorData',
-  full_name='ErrorData',
+  full_name='protobufs.ErrorData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='title', full_name='ErrorData.title', index=0,
+      name='title', full_name='protobufs.ErrorData.title', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='jsonDetails', full_name='ErrorData.jsonDetails', index=1,
+      name='jsonDetails', full_name='protobufs.ErrorData.jsonDetails', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='fatal', full_name='ErrorData.fatal', index=2,
+      name='fatal', full_name='protobufs.ErrorData.fatal', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -606,8 +634,8 @@ _ERRORDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1256,
-  serialized_end=1318,
+  serialized_start=1482,
+  serialized_end=1544,
 )
 
 _CLIENTTOTRANSFERNODEMESSAGE.fields_by_name['type'].enum_type = _CLIENTTOTRANSFERNODEMESSAGE_MESSAGETYPE
@@ -641,56 +669,56 @@ DESCRIPTOR.message_types_by_name['ErrorData'] = _ERRORDATA
 ClientToTransferNodeMessage = _reflection.GeneratedProtocolMessageType('ClientToTransferNodeMessage', (_message.Message,), dict(
   DESCRIPTOR = _CLIENTTOTRANSFERNODEMESSAGE,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:ClientToTransferNodeMessage)
+  # @@protoc_insertion_point(class_scope:protobufs.ClientToTransferNodeMessage)
   ))
 _sym_db.RegisterMessage(ClientToTransferNodeMessage)
 
 AuthenticateData = _reflection.GeneratedProtocolMessageType('AuthenticateData', (_message.Message,), dict(
   DESCRIPTOR = _AUTHENTICATEDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:AuthenticateData)
+  # @@protoc_insertion_point(class_scope:protobufs.AuthenticateData)
   ))
 _sym_db.RegisterMessage(AuthenticateData)
 
 StartUploadData = _reflection.GeneratedProtocolMessageType('StartUploadData', (_message.Message,), dict(
   DESCRIPTOR = _STARTUPLOADDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:StartUploadData)
+  # @@protoc_insertion_point(class_scope:protobufs.StartUploadData)
   ))
 _sym_db.RegisterMessage(StartUploadData)
 
 UploadData = _reflection.GeneratedProtocolMessageType('UploadData', (_message.Message,), dict(
   DESCRIPTOR = _UPLOADDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:UploadData)
+  # @@protoc_insertion_point(class_scope:protobufs.UploadData)
   ))
 _sym_db.RegisterMessage(UploadData)
 
 FinishedData = _reflection.GeneratedProtocolMessageType('FinishedData', (_message.Message,), dict(
   DESCRIPTOR = _FINISHEDDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:FinishedData)
+  # @@protoc_insertion_point(class_scope:protobufs.FinishedData)
   ))
 _sym_db.RegisterMessage(FinishedData)
 
 TransferNodeToClientMessage = _reflection.GeneratedProtocolMessageType('TransferNodeToClientMessage', (_message.Message,), dict(
   DESCRIPTOR = _TRANSFERNODETOCLIENTMESSAGE,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:TransferNodeToClientMessage)
+  # @@protoc_insertion_point(class_scope:protobufs.TransferNodeToClientMessage)
   ))
 _sym_db.RegisterMessage(TransferNodeToClientMessage)
 
 AuthSuccessData = _reflection.GeneratedProtocolMessageType('AuthSuccessData', (_message.Message,), dict(
   DESCRIPTOR = _AUTHSUCCESSDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:AuthSuccessData)
+  # @@protoc_insertion_point(class_scope:protobufs.AuthSuccessData)
   ))
 _sym_db.RegisterMessage(AuthSuccessData)
 
 TransferCreatedData = _reflection.GeneratedProtocolMessageType('TransferCreatedData', (_message.Message,), dict(
   DESCRIPTOR = _TRANSFERCREATEDDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:TransferCreatedData)
+  # @@protoc_insertion_point(class_scope:protobufs.TransferCreatedData)
   ))
 _sym_db.RegisterMessage(TransferCreatedData)
 
@@ -699,12 +727,12 @@ RecipientsData = _reflection.GeneratedProtocolMessageType('RecipientsData', (_me
   Recipient = _reflection.GeneratedProtocolMessageType('Recipient', (_message.Message,), dict(
     DESCRIPTOR = _RECIPIENTSDATA_RECIPIENT,
     __module__ = 'clientmessage_pb2'
-    # @@protoc_insertion_point(class_scope:RecipientsData.Recipient)
+    # @@protoc_insertion_point(class_scope:protobufs.RecipientsData.Recipient)
     ))
   ,
   DESCRIPTOR = _RECIPIENTSDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:RecipientsData)
+  # @@protoc_insertion_point(class_scope:protobufs.RecipientsData)
   ))
 _sym_db.RegisterMessage(RecipientsData)
 _sym_db.RegisterMessage(RecipientsData.Recipient)
@@ -712,14 +740,14 @@ _sym_db.RegisterMessage(RecipientsData.Recipient)
 ProgressData = _reflection.GeneratedProtocolMessageType('ProgressData', (_message.Message,), dict(
   DESCRIPTOR = _PROGRESSDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:ProgressData)
+  # @@protoc_insertion_point(class_scope:protobufs.ProgressData)
   ))
 _sym_db.RegisterMessage(ProgressData)
 
 ErrorData = _reflection.GeneratedProtocolMessageType('ErrorData', (_message.Message,), dict(
   DESCRIPTOR = _ERRORDATA,
   __module__ = 'clientmessage_pb2'
-  # @@protoc_insertion_point(class_scope:ErrorData)
+  # @@protoc_insertion_point(class_scope:protobufs.ErrorData)
   ))
 _sym_db.RegisterMessage(ErrorData)
 

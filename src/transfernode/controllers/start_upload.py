@@ -1,6 +1,7 @@
 import json
 from rx import Observable, Observer
 
+from transfernode.config import TransferNodeConfiguration
 from transfernode.models.exceptions import (
     NotAuthenticatedException, InvalidUploadDataException
 )
@@ -19,6 +20,10 @@ class StartUploadController:
         self.incoming = incoming
         self.outgoing = outgoing
         self.session = session
+
+        config = TransferNodeConfiguration.instance()
+        self.chunk_size = config.get_config('upload', 'chunkSize')
+        self.request_chunks = config.get_config('upload', 'requestChunks')
 
         self.incoming.subscribe(self.process_start_upload)
 
@@ -48,6 +53,8 @@ class StartUploadController:
             type=TransferNodeToClientMessage.MessageType.Value('TRANSFER_CREATED'),
             transferCreatedData=TransferCreatedData(
                 transferId=session_id,
+                chunkSize=self.chunk_size,
+                requestChunks=self.request_chunks,
             ),
             timestamp=make_timestamp(),
         )

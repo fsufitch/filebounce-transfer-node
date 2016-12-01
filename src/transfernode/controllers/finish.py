@@ -14,4 +14,5 @@ class FinishController:
         self.incoming.subscribe(self.process_finished_data)
 
     def process_finished_data(self, data: FinishedData):
+        self.session.flush()
         self.outgoing.on_completed()

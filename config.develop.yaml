@@ -1,3 +1,7 @@
 listen:
   #hostname: 0.0.0.0  # Not used
   port: 8888
+
+upload:
+  chunkSize: 1440000  # bytes
+  requestChunks: 2  # number of chunks to request at a time

@@ -69,6 +69,8 @@ message AuthSuccessData {
 
 message TransferCreatedData {
   string transferId = 1;
+  uint64 chunkSize = 2;
+  uint64 requestChunks = 3;
 }
 
 message RecipientsData {
@@ -82,6 +84,8 @@ message RecipientsData {
 
 message ProgressData {
   int64 bytesUploaded = 1;
+  uint64 requestChunks = 2;
+  uint64 chunkSize = 3;
 }
 
 message ErrorData {
