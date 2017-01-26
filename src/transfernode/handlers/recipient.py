@@ -1,4 +1,5 @@
 import sys
+from ipaddress import ip_address, IPv4Address, IPv6Address
 from tornado.web import RequestHandler, asynchronous
 
 from transfernode.models.exceptions import UploadAlreadyStartedException
@@ -18,6 +19,14 @@ class RecipientHandler(RequestHandler):
             self.finish()
             return
         self.session = self.session_service.transfer_sessions[transfer_id]
+        x_real_ip = self.request.headers.get("X-Real-IP")
+        remote_ip = x_real_ip or self.request.remote_ip
+        addr = ip_address(remote_ip)
+        self.session.add_recipient(
+            ipv4=remote_ip if isinstance(addr, IPv4Address) else None,
+            ipv6=remote_ip if isinstance(addr, IPv6Address) else None,
+            identity="",
+        )
 
         try:
             data_stream = self.session.get_data_stream()

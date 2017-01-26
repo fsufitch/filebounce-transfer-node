@@ -29,7 +29,7 @@ class UploadController:
             self.outgoing.on_error(DataSizeMismatchException("got %s expected %s" % (len(raw_data), size)))
         order = data.order
 
-        self.session.upload_started = True
+        self.session.set_upload_started()
         if not self.session.bytes_progress:
             self.session.bytes_progress = 0
         self.session.bytes_progress += size
