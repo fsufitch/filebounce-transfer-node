@@ -114,5 +114,5 @@ class ClientWebSocketHandler(WebSocketHandler):
             return msg.type == type_value
         return inner
 
-    def check_origin(self):
+    def check_origin(self, origin):
         return True  # Allow any connections
